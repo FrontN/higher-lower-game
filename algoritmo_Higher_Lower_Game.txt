@@ -1,0 +1,49 @@
+ALGORITMO: Higher Lower Game
+------------------------------
+
+VARIABILI E TIPI:
+  - Data: dicts
+  - A: dict
+  - B: dict
+  - guess: str
+  - play_again: str
+  - opzione: array
+  - keep_going: bool
+
+COSTANTI:
+  - funzione get_random_account: ritorna una celebrita a caso da Data
+  - funzione win_or_loss: prende tre parametri A, B e user_guess e controlla se l'utente a vinto e ritorna True altrimenti false
+
+INIZIO:
+  scrivi("Welcome to the Higher Lower Game")
+  B <--- scegli casualmente da Data
+  score <--- 0
+  keep_going <--- True
+  ciclo
+  	A <--- B
+  	B <--- scegli casualmente da Data
+	Se B uguale A
+		B = scegli casualmente da Data
+	fine Se
+  	scrivi("compare A vs B")
+  	scrivi("Who has more followers? Type 'A' or 'B': ")
+  	leggi(guess)
+	Se win_or_loss uguale True
+		score += 1
+		scrivi("You're right! current score: ", score)
+	altrimenti
+  		scrivi("Sorry. that's wrong")
+  		scrivi("Final score: ", score)
+		ciclo (funzione)
+			scrivi("Play again, (y/n)?: ")
+			leggi(play_again)
+			opzione <--- ['y', 'yes','no', 'n']
+			Se opzione in play_again
+				Se play_again inizia con 'n'
+					scrivi("See You!)
+					keep_going = False
+					chiudi il ciclo
+				fine Se
+			fine Se
+	fine Se
+FINE
